@@ -1,0 +1,60 @@
+{
+  "title": "Apple Podcasts Scraper input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQueries": {
+      "title": "Search queries",
+      "type": "array",
+      "description": "Keywords to find podcasts, e.g. [\"technology\", \"true crime\", \"startups\"].",
+      "editor": "stringList"
+    },
+    "podcastIds": {
+      "title": "Podcast IDs",
+      "type": "array",
+      "description": "Apple Podcasts / iTunes collection IDs or podcast URLs, e.g. [1434243584, \"https://podcasts.apple.com/us/podcast/id1434243584\"].",
+      "editor": "stringList"
+    },
+    "feedUrls": {
+      "title": "RSS feed URLs",
+      "type": "array",
+      "description": "Direct podcast RSS feed URLs, e.g. [\"https://lexfridman.com/feed/podcast/\"].",
+      "editor": "stringList"
+    },
+    "includeEpisodes": {
+      "title": "Include episodes",
+      "type": "boolean",
+      "description": "Also collect episodes for each podcast (parsed from its public RSS feed, with iTunes fallback).",
+      "default": true
+    },
+    "maxEpisodesPerPodcast": {
+      "title": "Max episodes per podcast",
+      "type": "integer",
+      "description": "Cap on episodes collected per podcast.",
+      "default": 100,
+      "minimum": 1
+    },
+    "maxPodcastsPerSearch": {
+      "title": "Max podcasts per search",
+      "type": "integer",
+      "description": "Cap on podcasts returned per search query.",
+      "default": 50,
+      "minimum": 1
+    },
+    "country": {
+      "title": "Storefront country",
+      "type": "string",
+      "description": "Two-letter Apple storefront, e.g. US, GB, DE.",
+      "default": "US",
+      "editor": "textfield"
+    },
+    "maxItems": {
+      "title": "Max rows total",
+      "type": "integer",
+      "description": "Overall cap on rows (podcasts + episodes) pushed to the dataset.",
+      "default": 100000,
+      "minimum": 1
+    }
+  },
+  "required": []
+}

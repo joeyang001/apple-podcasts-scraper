@@ -1,0 +1,48 @@
+{
+  "actorSpecification": 1,
+  "name": "apple-podcasts-scraper",
+  "title": "Apple Podcasts Scraper — Episodes, Audio & Metadata",
+  "description": "Scrape Apple Podcasts: search podcasts, then pull full episode feeds with titles, descriptions, publish dates, durations, audio URLs, season/episode numbers and artwork. Powered by public RSS feeds and the iTunes API. Normalized, de-duplicated, with provenance on every row.",
+  "version": "0.0",
+  "buildTag": "latest",
+  "meta": { "templateId": "python-start" },
+  "dockerfile": "../Dockerfile",
+  "readme": "../README.md",
+  "input": "./INPUT_SCHEMA.json",
+  "categories": ["MEDIA", "NEWS", "AI"],
+  "minMemoryMbytes": 256,
+  "maxMemoryMbytes": 1024,
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Apple Podcasts output",
+    "description": "Podcast shows and their episodes.",
+    "properties": {
+      "results": { "type": "string", "title": "Rows", "template": "{{links.apiDefaultDatasetUrl}}/items" }
+    }
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "fields": {
+        "record_type": "string",
+        "collection_id": "integer", "name": "string", "artist": "string",
+        "feed_url": "string", "artwork_url": "string",
+        "genres": "array", "primary_genre": "string", "country": "string", "language": "string",
+        "track_count": "integer", "release_date": "string", "itunes_url": "string",
+        "content_advisory_rating": "string", "is_explicit": "boolean",
+        "description": "string", "author": "string", "owner_name": "string",
+        "owner_email": "string", "copyright": "string", "link": "string",
+        "last_build_date": "string",
+        "podcast_collection_id": "integer", "podcast_name": "string",
+        "episode_guid": "string", "title": "string",
+        "description_html": "string",
+        "pub_date": "string", "pub_date_raw": "string", "duration_seconds": "integer",
+        "audio_url": "string", "audio_length": "integer", "audio_type": "string",
+        "episode_link": "string", "image_url": "string",
+        "season": "integer", "episode_number": "integer", "episode_type": "string",
+        "source_type": "string", "source_input": "string",
+        "schema_version": "string", "fetched_at": "string"
+      }
+    }
+  }
+}
